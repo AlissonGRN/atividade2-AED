@@ -13,7 +13,6 @@ class LinkedList():
     def __getitem__(self, index):
         """Retorna o elemento no index especificado"""
         pointer = self.head
-
         for i in range(index):
             if pointer:
                 pointer = pointer.next
@@ -22,6 +21,19 @@ class LinkedList():
         if pointer:
             return pointer.data
         raise IndexError("list index out of range")
+
+    def __setitem__(self, index, elem):
+        """Adiciona um elemento na posição especificada"""
+        pointer = self.head
+        for i in range(index):
+            if pointer:
+                pointer = pointer.next
+            else:
+                raise IndexError("list index out of range")
+        if pointer:
+            pointer.data = elem
+        else:
+            raise IndexError("list index out of range")
 
     def append(self, elem):
         if self.head:
