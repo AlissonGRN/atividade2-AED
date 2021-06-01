@@ -36,6 +36,7 @@ class LinkedList():
             raise IndexError("list index out of range")
 
     def append(self, elem):
+        """Adiciona um elemento ao final da lista"""
         if self.head:
             # inserção enquanto a lista já possui elementos
             pointer = self.head
@@ -46,6 +47,17 @@ class LinkedList():
             # primeira inserção na lista
             self.head = Node(elem)
         self._size += 1
+
+    def index(self, elem):
+        """Retorna a posição do elemento especificado"""
+        pointer = self.head
+        i = 0
+        while(pointer):
+            if pointer.data == elem:
+                return i
+            pointer = pointer.next
+            i = i+1
+        raise ValueError(f"{elem} is no in list")
 
 
 lista = LinkedList()
